@@ -4,30 +4,43 @@ const app = express()
  
 app.use(express.urlencoded({ extended: false }))
 
-/*
-app.use('/api', (req, res, next) => {
-	console.log('I am only logged when the request is made to ' + req.url)	
-	res.send('I am the api middleware')
-	next()
-})
-*/
+app.use('/simple-maths', (req, res, next) => {
 
-app.use((req, res, next) => {
-	// changing the request body
-	req.user = {
-		id: 1,
-		username: 'Admin',
-		email: 'admin@weebr.ai'
+	let { a, b, o } = req.body
+
+	let result = 0
+	
+	try {
+		a = parseInt(a)
+		b = parseInt(b)
+
+		switch(o) {
+			case '+':
+				result = a + b
+				break
+			case '-':
+				result = a - b
+				break
+			default:
+				result = '0, since Operator is not known, please use + or -,'
+				break
+	
+		}
+
+	} catch(err) {
+	        result = "Please enter a number"
+		
+	} finally {
+		res.send(`result: ${result}`)
+		next()	
 	}
-	next()	
 })
 
 app.get('/', (req, res) => {
-	//return res.json({ 'message': 'This is the index page' })
-	const { id, username, email } = req.user
-	res.send('The user is ' + username + ' with ID: ' + id + ' and email, ' + email)
+	res.send('In postman, key in a, b and o as the first and second parameter. o for the operator [+, -], respectively')
 })
 
 app.listen(process.env.port || 3000, () => {
 	console.log('Server running on port 3000')
 })
+
