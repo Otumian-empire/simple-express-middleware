@@ -1,0 +1,32 @@
+{
+  "name": "simple-express-middleware",
+  "version": "1.0.0",
+  "description": "A simple middleware for addition and subtraction of numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start":"nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Otumian-empire/shogan-simple-middleware.git"
+  },
+  "keywords": [
+    "nodejs.",
+    "express",
+    "middleware",
+    "middle",
+    "ware",
+    "js",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Otumian-empire/shogan-simple-middleware/issues"
+  },
+  "homepage": "https://github.com/Otumian-empire/shogan-simple-middleware#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
